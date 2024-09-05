@@ -9,7 +9,7 @@ class TOutlinedButtonTheme{
     style: OutlinedButton.styleFrom(
       elevation: 0,
       foregroundColor: Colors.black,
-      side: BorderSide(color: TColors.healthGreen),
+      side: const BorderSide(color: TColors.AppBlue),
       textStyle: const TextStyle(fontFamily:'Poppins',fontSize: 16,color: Colors.black,fontWeight: FontWeight.w600),
       padding: const EdgeInsets.symmetric(vertical: 16,horizontal: 20),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
@@ -19,7 +19,7 @@ class TOutlinedButtonTheme{
     style: OutlinedButton.styleFrom(
       elevation: 0,
       foregroundColor: Colors.white,
-      side: BorderSide(color: TColors.healthGreen),
+      side: BorderSide(color: TColors.AppBlue),
       textStyle: const TextStyle(fontFamily:'Poppins',fontSize: 16,color: Colors.white,fontWeight: FontWeight.w600),
       padding: const EdgeInsets.symmetric(vertical: 16,horizontal: 20),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),

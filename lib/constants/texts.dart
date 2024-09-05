@@ -5,11 +5,11 @@ class Texts {
   static const String lastName = "Last Name";
   static const String username = "Username";
   static const String email = "Email";
-  static const String phoneNumber = "Phone Number";
+  static const String studentNo = "Student Number";
   static const String password = "Password";
   static const String id= "SA ID Number";
   static const String loginText= "Welcome back,";
-  static const String loginSubtitle= "Repair your healthy habits";
+  static const String loginSubtitle= "Time to grab a buddy";
   static const String SignIn= "Sign In";
   static const String CreateAcc= "Create Account";
   static const String firstNameEmptyError= "Please enter your first name";
@@ -53,8 +53,6 @@ class Texts {
 
   static const String severeOverWeight = "Severely Overweight";
   static const String severeOverWeightMessage = "This is your chance for a fresh start. With determination and the right support, you can make significant changes. Set achievable goals and take it one step at a time. Your journey to a healthier you starts now!";
-
-  static const String GEMINI_API_KEY= "AIzaSyA1ItQbKh6q169LprQv4T8QBPSNOumxgv4";
 
 
 

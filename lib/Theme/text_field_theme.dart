@@ -24,7 +24,7 @@ class TTextFieldTheme {
     ),
     focusedBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(14),
-      borderSide: const BorderSide(width: 1, color: TColors.healthGreen),
+      borderSide: const BorderSide(width: 1, color: TColors.AppBlue),
     ),
     errorBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(14),
@@ -54,7 +54,7 @@ class TTextFieldTheme {
     ),
     focusedBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(14),
-      borderSide: const BorderSide(width: 1, color: TColors.healthGreen),
+      borderSide: const BorderSide(width: 1, color: TColors.AppBlue),
     ),
     errorBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(14),

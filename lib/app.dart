@@ -1,3 +1,4 @@
+import 'package:buddy_app/pages/home.dart';
 import 'package:buddy_app/pages/login.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +7,7 @@ import 'constants/colors.dart';
 import 'package:iconsax/iconsax.dart';
 import 'pages/signup.dart';
 import 'pages/login.dart';
+import 'pages/home.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -56,6 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
+    Home(),
     SignupScreen(),
     Login(),
     // BmiCalc(),
@@ -76,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: CurvedNavigationBar(
         items: const [
           Icon(
-            Iconsax.user,
+            Iconsax.home,
             size: 30,
             color: Colors.white,
           ),
@@ -85,16 +88,11 @@ class _MyHomePageState extends State<MyHomePage> {
               size: 30,
              color: Colors.white,
           ),
-          // Icon(
-          //   Iconsax.link,
-          //   size: 30,
-          //   color: Colors.white,
-          // ),
-          // Icon(
-          //   Iconsax.profile_circle,
-          //   size: 30,
-          //   color: Colors.white,
-          // ),
+          Icon(
+             Iconsax.user_octagon,
+              size: 30,
+             color: Colors.white,
+          ),
         ],
         index: _selectedIndex,
         onTap: (index) {
@@ -104,8 +102,8 @@ class _MyHomePageState extends State<MyHomePage> {
         },
         animationDuration: const Duration(milliseconds: 300),
         backgroundColor: Colors.transparent,
-        color: TColors.healthGreen,
-        buttonBackgroundColor: TColors.healthGreen,
+        color: TColors.AppBlue,
+        buttonBackgroundColor: TColors.AppBlue,
       ),
     );
   }

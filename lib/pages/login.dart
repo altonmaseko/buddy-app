@@ -53,7 +53,7 @@ class _LoginState extends State<Login> {
               Image(
                 height: 150,
                 image: AssetImage(
-                  mode ? TImages.logoHeartwhite : TImages.logoHeartblack,
+                  mode ? TImages.people : TImages.people,
                 ),
               ),
 
@@ -119,7 +119,7 @@ class _LoginState extends State<Login> {
                       width: double.infinity,
                       child: OutlinedButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, 'signuppage');
+                          Navigator.pushNamed(context, 'signup');
                         },
                         child: Text(Texts.CreateAcc),
                       ),

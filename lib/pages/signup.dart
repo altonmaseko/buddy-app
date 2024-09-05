@@ -21,10 +21,9 @@ class _SignupScreenState extends State<SignupScreen> {
   final TextEditingController _lastNameController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _phoneNumberController = TextEditingController();
+  final TextEditingController _studentNoController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _rePasswordController = TextEditingController();
-  final TextEditingController _idController = TextEditingController();
   final TextEditingController _codeController = TextEditingController();
 
   // FocusNodes for input fields
@@ -61,10 +60,10 @@ class _SignupScreenState extends State<SignupScreen> {
     _firstNameController.text = "ExampleName";
     _lastNameController.text = "ExampleSurname";
     _emailController.text = "altonmaseko1000@gmail.com";
-    _phoneNumberController.text = "0677716689";
+    _studentNoController.text = "0677716689";
     _passwordController.text = "Password123**";
     _rePasswordController.text = "Password123";
-    _idController.text = "0310240640089";
+    _studentNoController.text="2562592";
 
     // Default values ====================
     _firstNameFocusNode
@@ -121,10 +120,9 @@ class _SignupScreenState extends State<SignupScreen> {
     _lastNameController.dispose();
     _usernameController.dispose();
     _emailController.dispose();
-    _phoneNumberController.dispose();
+    _studentNoController.dispose();
     _passwordController.dispose();
     _rePasswordController.dispose();
-    _idController.dispose();
     _firstNameFocusNode.dispose();
     _lastNameFocusNode.dispose();
     _usernameFocusNode.dispose();
@@ -191,16 +189,6 @@ class _SignupScreenState extends State<SignupScreen> {
     return null;
   }
 
-  String? _validatePhoneNumber(String? value) {
-    if (!_phoneNumberTouched) return null;
-    if (value == null || value.isEmpty) {
-      return Texts.phoneNumberEmptyError;
-    }
-    if (!(value.length == 10)) {
-      return Texts.phoneNumberLengthError;
-    }
-    return null;
-  }
 
   String? _validatePassword(String? value) {
     if (!_passwordTouched) return null;
@@ -338,14 +326,13 @@ class _SignupScreenState extends State<SignupScreen> {
 
                     // Phone Number
                     TextFormField(
-                      // initialValue: '0677716689',
-                      controller: _phoneNumberController,
+                       //initialValue: '2562592',
+                      controller: _studentNoController,
                       focusNode: _phoneNumberFocusNode,
                       decoration: const InputDecoration(
-                        labelText: Texts.phoneNumber,
+                        labelText: Texts.studentNo,
                         prefixIcon: Icon(Icons.phone_outlined),
                       ),
-                      validator: _validatePhoneNumber,
                     ),
                     const SizedBox(
                       height: TSizes.spaceBtwInputFields,
@@ -397,21 +384,6 @@ class _SignupScreenState extends State<SignupScreen> {
                       height: TSizes.spaceBtwInputFields,
                     ),
 
-                    // ID number
-                    TextFormField(
-                      // initialValue: "0310240640089",
-                      controller: _idController,
-                      focusNode: _idFocusNode,
-                      decoration: const InputDecoration(
-                        labelText: Texts.id,
-                        prefixIcon: Icon(Iconsax.finger_scan),
-                      ),
-                      validator: _validateID,
-                    ),
-                    const SizedBox(
-                      height: TSizes.spaceBtwInputFields * 2,
-                    ),
-
                     // Signup button
                     ElevatedButton(
                       onPressed: () {
@@ -445,9 +417,7 @@ class _SignupScreenState extends State<SignupScreen> {
     String url = baseUrl + "api/auth/register";
     final uri = Uri.parse(url);
     var body = {
-      "email": _emailController.text,
-      "phone": _phoneNumberController.text,
-      "id": _idController.text,
+      "studentno": _studentNoController.text,
     };
     final response = await http.post(uri, body: body);
 
@@ -477,10 +447,8 @@ class _SignupScreenState extends State<SignupScreen> {
     var body = {
       "firstname": _firstNameController.text,
       "lastname": _lastNameController.text,
-      "email": _emailController.text,
-      "phone": _phoneNumberController.text,
+      "studentno": _studentNoController.text,
       "password": _passwordController.text,
-      "id": _idController.text,
     };
     final response = await http.post(uri, body: body);
 
