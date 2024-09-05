@@ -28,8 +28,8 @@ class _MyAppState extends State<MyApp> {
         // 'bmi': (context) => BmiCalc(),
         // 'links': (context) => HelpfulLinksPage(),
         // 'alarm': (context) => AlarmPage(),
-         'signup': (context) => SignupScreen(),
-         'login': (context) => Login(),
+        'signup': (context) => SignupScreen(),
+        'login': (context) => Login(),
         // 'forgotPass': (context) => ForgetPassword(),
         // 'verifyEmail': (context) => VerifyEmail(),
         // 'profile': (context) => Profile(),
@@ -80,10 +80,10 @@ class _MyHomePageState extends State<MyHomePage> {
             size: 30,
             color: Colors.white,
           ),
-         Icon(
-             Iconsax.calendar,
-              size: 30,
-             color: Colors.white,
+          Icon(
+            Iconsax.calendar,
+            size: 30,
+            color: Colors.white,
           ),
           // Icon(
           //   Iconsax.link,
