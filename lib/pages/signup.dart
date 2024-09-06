@@ -15,13 +15,12 @@ class SignupScreen extends StatefulWidget {
 class _SignupScreenState extends State<SignupScreen> {
   final _formKey = GlobalKey<FormState>();
 
-
   // TextEditingControllers for input fields
   final TextEditingController _firstNameController = TextEditingController();
   final TextEditingController _lastNameController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _studentNoController = TextEditingController();
+  final TextEditingController _idController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _rePasswordController = TextEditingController();
   final TextEditingController _codeController = TextEditingController();
@@ -29,28 +28,20 @@ class _SignupScreenState extends State<SignupScreen> {
   // FocusNodes for input fields
   final FocusNode _firstNameFocusNode = FocusNode();
   final FocusNode _lastNameFocusNode = FocusNode();
-  final FocusNode _usernameFocusNode = FocusNode();
-  final FocusNode _emailFocusNode = FocusNode();
-  final FocusNode _phoneNumberFocusNode = FocusNode();
+  final FocusNode _idFocusNode = FocusNode();
   final FocusNode _passwordFocusNode = FocusNode();
   final FocusNode _rePasswordFocusNode = FocusNode();
-  final FocusNode _idFocusNode = FocusNode();
 
   // Flags to track if fields have been clicked first time
   bool _firstNameTouched = false;
   bool _lastNameTouched = false;
-  bool _usernameTouched = false;
-  bool _emailTouched = false;
-  bool _phoneNumberTouched = false;
+  bool _idTouched = false;
   bool _passwordTouched = false;
   bool _rePasswordTouched = false;
-  bool _idTouched = false;
 
   // Password visibility flags
   bool _passwordVisible = false;
   bool _rePasswordVisible = false;
-
-
 
   //state to track focus on each input field
   @override
@@ -59,59 +50,40 @@ class _SignupScreenState extends State<SignupScreen> {
     // Default values ==============
     _firstNameController.text = "ExampleName";
     _lastNameController.text = "ExampleSurname";
-    _emailController.text = "altonmaseko1000@gmail.com";
-    _studentNoController.text = "0677716689";
     _passwordController.text = "Password123**";
     _rePasswordController.text = "Password123";
-    _studentNoController.text="2562592";
+    _studentNoController.text = "2562592";
 
     // Default values ====================
     _firstNameFocusNode
         .addListener(() => _handleFocusChange(_firstNameFocusNode, () {
-      setState(() {
-        _firstNameTouched = true;
-      });
-    }));
+              setState(() {
+                _firstNameTouched = true;
+              });
+            }));
     _lastNameFocusNode
         .addListener(() => _handleFocusChange(_lastNameFocusNode, () {
-      setState(() {
-        _lastNameTouched = true;
-      });
-    }));
-    _usernameFocusNode
-        .addListener(() => _handleFocusChange(_usernameFocusNode, () {
-      setState(() {
-        _usernameTouched = true;
-      });
-    }));
-    _emailFocusNode.addListener(() => _handleFocusChange(_emailFocusNode, () {
-      setState(() {
-        _emailTouched = true;
-      });
-    }));
-    _phoneNumberFocusNode
-        .addListener(() => _handleFocusChange(_phoneNumberFocusNode, () {
-      setState(() {
-        _phoneNumberTouched = true;
-      });
-    }));
+              setState(() {
+                _lastNameTouched = true;
+              });
+            }));
+    _idFocusNode.addListener(() => _handleFocusChange(_idFocusNode, () {
+          setState(() {
+            _idTouched = true;
+          });
+        }));
     _passwordFocusNode
         .addListener(() => _handleFocusChange(_passwordFocusNode, () {
-      setState(() {
-        _passwordTouched = true;
-      });
-    }));
+              setState(() {
+                _passwordTouched = true;
+              });
+            }));
     _rePasswordFocusNode
         .addListener(() => _handleFocusChange(_rePasswordFocusNode, () {
-      setState(() {
-        _rePasswordTouched = true;
-      });
-    }));
-    _idFocusNode.addListener(() => _handleFocusChange(_idFocusNode, () {
-      setState(() {
-        _idTouched = true;
-      });
-    }));
+              setState(() {
+                _rePasswordTouched = true;
+              });
+            }));
   }
 
   @override
@@ -119,18 +91,13 @@ class _SignupScreenState extends State<SignupScreen> {
     _firstNameController.dispose();
     _lastNameController.dispose();
     _usernameController.dispose();
-    _emailController.dispose();
     _studentNoController.dispose();
     _passwordController.dispose();
     _rePasswordController.dispose();
     _firstNameFocusNode.dispose();
     _lastNameFocusNode.dispose();
-    _usernameFocusNode.dispose();
-    _emailFocusNode.dispose();
-    _phoneNumberFocusNode.dispose();
     _passwordFocusNode.dispose();
     _rePasswordFocusNode.dispose();
-    _idFocusNode.dispose();
     super.dispose();
   }
 
@@ -170,53 +137,6 @@ class _SignupScreenState extends State<SignupScreen> {
     return null;
   }
 
-  String? _validateUsername(String? value) {
-    if (!_usernameTouched) return null;
-    if (value == null || value.isEmpty) {
-      return Texts.userNameEmptyError;
-    }
-    return null;
-  }
-
-  String? _validateEmail(String? value) {
-    if (!_emailTouched) return null;
-    if (value == null || value.isEmpty) {
-      return Texts.emailEmptyError;
-    }
-    if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-      return Texts.emailInvalidError;
-    }
-    return null;
-  }
-
-
-  String? _validatePassword(String? value) {
-    if (!_passwordTouched) return null;
-    if (value == null || value.isEmpty) {
-      return Texts.passwordEmptyError;
-    }
-    if (value.length < 6) {
-      return Texts.passwordLengthError;
-    }
-    if (!RegExp(
-        r'^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&_])[A-Za-z\d@$!%*?&_]{6,}$')
-        .hasMatch(value)) {
-      return Texts.passwordInvalidError;
-    }
-    return null;
-  }
-
-  String? _validateRePassword(String? value) {
-    if (!_rePasswordTouched) return null;
-    if (value == null || value.isEmpty) {
-      return Texts.reEnterPasswordEmptyError;
-    }
-    if (value != _passwordController.text) {
-      return Texts.reEnterPasswordInvalidError;
-    }
-    return null;
-  }
-
   String? _validateID(String? value) {
     if (!_idTouched) return null;
     if (value == null || value.isEmpty) {
@@ -249,6 +169,32 @@ class _SignupScreenState extends State<SignupScreen> {
     return sum % 10 == 0;
   }
 
+  String? _validatePassword(String? value) {
+    if (!_passwordTouched) return null;
+    if (value == null || value.isEmpty) {
+      return Texts.passwordEmptyError;
+    }
+    if (value.length < 6) {
+      return Texts.passwordLengthError;
+    }
+    if (!RegExp(
+            r'^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&_])[A-Za-z\d@$!%*?&_]{6,}$')
+        .hasMatch(value)) {
+      return Texts.passwordInvalidError;
+    }
+    return null;
+  }
+
+  String? _validateRePassword(String? value) {
+    if (!_rePasswordTouched) return null;
+    if (value == null || value.isEmpty) {
+      return Texts.reEnterPasswordEmptyError;
+    }
+    if (value != _passwordController.text) {
+      return Texts.reEnterPasswordInvalidError;
+    }
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -278,7 +224,6 @@ class _SignupScreenState extends State<SignupScreen> {
                       children: [
                         Expanded(
                           child: TextFormField(
-                            // initialValue: "ExampleName",
                             controller: _firstNameController,
                             focusNode: _firstNameFocusNode,
                             decoration: const InputDecoration(
@@ -309,30 +254,29 @@ class _SignupScreenState extends State<SignupScreen> {
                       height: TSizes.spaceBtwInputFields,
                     ),
 
-                    // Email
+                    // Student Number
                     TextFormField(
-                      // initialValue: "altonmaseko1000@gmail.com",
-                      controller: _emailController,
-                      focusNode: _emailFocusNode,
+                      //initialValue: '2562592',
+                      controller: _studentNoController,
                       decoration: const InputDecoration(
-                        labelText: Texts.email,
-                        prefixIcon: Icon(Icons.email_outlined),
+                        labelText: Texts.studentNo,
+                        prefixIcon: Icon(Icons.phone_outlined),
                       ),
-                      validator: _validateEmail,
                     ),
                     const SizedBox(
                       height: TSizes.spaceBtwInputFields,
                     ),
 
-                    // Phone Number
+                    // ID number
                     TextFormField(
-                       //initialValue: '2562592',
-                      controller: _studentNoController,
-                      focusNode: _phoneNumberFocusNode,
+                      // initialValue: "0310240640089",
+                      controller: _idController,
+                      focusNode: _idFocusNode,
                       decoration: const InputDecoration(
-                        labelText: Texts.studentNo,
-                        prefixIcon: Icon(Icons.phone_outlined),
+                        labelText: Texts.id,
+                        prefixIcon: Icon(Iconsax.finger_scan),
                       ),
+                      validator: _validateID,
                     ),
                     const SizedBox(
                       height: TSizes.spaceBtwInputFields,
@@ -414,10 +358,10 @@ class _SignupScreenState extends State<SignupScreen> {
 
     print("Sending registration request");
 
-    String url = baseUrl + "api/auth/register";
+    String url = baseUrl + "/register";
     final uri = Uri.parse(url);
     var body = {
-      "studentno": _studentNoController.text,
+      "studentNo": _studentNoController.text,
     };
     final response = await http.post(uri, body: body);
 
@@ -442,12 +386,13 @@ class _SignupScreenState extends State<SignupScreen> {
   Future<void> registerPart2(String code) async {
     showBottomMessage([CircularProgressIndicator()]);
 
-    String url = baseUrl + "api/auth/register/${code}";
+    String url = baseUrl + "/register/${code}";
     final uri = Uri.parse(url);
     var body = {
       "firstname": _firstNameController.text,
       "lastname": _lastNameController.text,
-      "studentno": _studentNoController.text,
+      "email": "${_studentNoController.text}@students.wits.ac.za",
+      "gender": int.parse(_idController.text[6]) <= 4 ? "F" : "M",
       "password": _passwordController.text,
     };
     final response = await http.post(uri, body: body);
@@ -482,7 +427,10 @@ class _SignupScreenState extends State<SignupScreen> {
       ]);
     } else {
       Navigator.of(context).pop(); // remove loading
-      showBottomMessage([Text("Sorry, something went wrong")]);
+      showBottomMessage([
+        Text(
+            "Sorry, something went wrong. Consider double checking your student number.")
+      ]);
     }
   }
 
@@ -532,8 +480,8 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                   TextField(
                     controller: _codeController,
-                    decoration: InputDecoration(
-                        hintText: "Enter code sent to your email"),
+                    decoration: const InputDecoration(
+                        hintText: "Enter code sent to your Student email"),
                   ),
                   SizedBox(
                     height: 20,
@@ -543,8 +491,8 @@ class _SignupScreenState extends State<SignupScreen> {
                     children: [
                       ElevatedButton(
                         onPressed: verifyCodeButton,
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 10, right: 10),
+                        child: const Padding(
+                          padding: EdgeInsets.only(left: 10, right: 10),
                           child: Text("Verify Code"),
                         ),
                       ),
@@ -553,8 +501,8 @@ class _SignupScreenState extends State<SignupScreen> {
                         onPressed: () {
                           Navigator.of(context).pop();
                         },
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 10, right: 10),
+                        child: const Padding(
+                          padding: EdgeInsets.only(left: 10, right: 10),
                           child: Text("Cancel"),
                         ),
                       ),

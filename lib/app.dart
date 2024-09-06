@@ -1,3 +1,5 @@
+import 'package:buddy_app/pages/buddyChat.dart';
+import 'package:buddy_app/pages/buddyRequestMake.dart';
 import 'package:buddy_app/pages/home.dart';
 import 'package:buddy_app/pages/login.dart';
 import 'package:buddy_app/pages/notification_page.dart';
@@ -33,10 +35,6 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       navigatorKey: navigatorKey,
       routes: {
-        // 'calendarNew':(context) =>Calendarschedule(),
-        // 'bmi': (context) => BmiCalc(),
-        // 'links': (context) => HelpfulLinksPage(),
-        // 'alarm': (context) => AlarmPage(),
         'signup': (context) => SignupScreen(),
         'login': (context) => Login(),
         'requester_pending_page': (context) => RequesterPendingPage(),
@@ -71,6 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Widget> _pages = [
     Home(),
     SignupScreen(),
+    Chat(),
     Login(),
     RequestBuddyPage(),
     ReceiverAcceptRejectPage()

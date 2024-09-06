@@ -4,7 +4,7 @@ class Texts {
   static const String firstName = "First Name";
   static const String lastName = "Last Name";
   static const String username = "Username";
-  static const String email = "Email";
+  static const String email = "Student Email";
   static const String studentNo = "Student Number";
   static const String password = "Password";
   static const String id= "SA ID Number";

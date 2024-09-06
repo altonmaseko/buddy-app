@@ -42,6 +42,10 @@ dependencies:
   url_launcher: ^6.3.0
   flutter_custom_carousel: ^0.1.0+1
   carousel_slider: ^5.0.0
+  flutter_staggered_animations: ^1.1.1
+  get: ^4.6.6
+  intl: ^0.19.0
+  dash_chat_2: ^0.0.21
 
 
   # Secure Storage
@@ -93,6 +97,9 @@ flutter:
   # https://flutter.dev/assets-and-images/#resolution-aware
   assets:
     - assets/images/people.png
+    - assets/images/bronzeBadge.png
+    - assets/images/silverBadge.png
+    - assets/images/goldBadge.png
 
 
   # For details regarding adding assets from package dependencies, see

@@ -1,10 +1,8 @@
 import 'dart:convert';
 
-
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:iconsax/iconsax.dart';
-
 
 import 'package:http/http.dart' as http;
 
@@ -80,7 +78,7 @@ class _LoginState extends State<Login> {
                       controller: _emailController,
                       decoration: InputDecoration(
                         prefixIcon: Icon(Iconsax.direct_right),
-                        labelText: 'Email:',
+                        labelText: Texts.email + ":",
                       ),
                     ),
                     const SizedBox(height: 20),
@@ -139,7 +137,7 @@ class _LoginState extends State<Login> {
 
     print("Sending registration request");
 
-    String url = baseUrl + "api/auth/login";
+    String url = baseUrl + "login";
     final uri = Uri.parse(url);
     var body = {
       "email": _emailController.text,
