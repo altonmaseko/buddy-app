@@ -1,5 +1,9 @@
 import 'package:buddy_app/pages/home.dart';
 import 'package:buddy_app/pages/login.dart';
+import 'package:buddy_app/pages/notification_page.dart';
+import 'package:buddy_app/pages/receiver_accept_reject_page.dart';
+import 'package:buddy_app/pages/request_buddy_page.dart';
+import 'package:buddy_app/pages/requester_pending_page.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'Theme/theme.dart';
@@ -8,6 +12,8 @@ import 'package:iconsax/iconsax.dart';
 import 'pages/signup.dart';
 import 'pages/login.dart';
 import 'pages/home.dart';
+
+final navigatorKey = GlobalKey<NavigatorState>();
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -25,6 +31,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: navigatorKey,
       routes: {
         // 'calendarNew':(context) =>Calendarschedule(),
         // 'bmi': (context) => BmiCalc(),
@@ -32,6 +39,10 @@ class _MyAppState extends State<MyApp> {
         // 'alarm': (context) => AlarmPage(),
         'signup': (context) => SignupScreen(),
         'login': (context) => Login(),
+        'requester_pending_page': (context) => RequesterPendingPage(),
+        'receiver_accept_reject_page': (context) => ReceiverAcceptRejectPage(),
+        'app': (context) => MyHomePage(),
+        'notification': (context) => NotificationPage(),
         // 'forgotPass': (context) => ForgetPassword(),
         // 'verifyEmail': (context) => VerifyEmail(),
         // 'profile': (context) => Profile(),
@@ -55,12 +66,14 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 3;
 
   final List<Widget> _pages = [
     Home(),
     SignupScreen(),
     Login(),
+    RequestBuddyPage(),
+    ReceiverAcceptRejectPage()
     // BmiCalc(),
     // Calendarschedule(),
     // HelpfulLinksPage(),
@@ -89,9 +102,19 @@ class _MyHomePageState extends State<MyHomePage> {
             color: Colors.white,
           ),
           Icon(
-             Iconsax.user_octagon,
-              size: 30,
-             color: Colors.white,
+            Iconsax.user_octagon,
+            size: 30,
+            color: Colors.white,
+          ),
+          Icon(
+            Iconsax.send,
+            size: 30,
+            color: Colors.white,
+          ),
+          Icon(
+            Iconsax.receipt,
+            size: 30,
+            color: Colors.white,
           ),
         ],
         index: _selectedIndex,

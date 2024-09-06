@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1067689019153",
+    "project_id": "buddynotification-e9c25",
+    "storage_bucket": "buddynotification-e9c25.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067689019153:android:4cc884c42b8e29cfecaeb0",
+        "android_client_info": {
+          "package_name": "com.example.buddy_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcpUNKE7jISISKTqdYakvjv7a-1i2oe-o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067689019153:android:a768419f63d2abe5ecaeb0",
+        "android_client_info": {
+          "package_name": "com.example.buddyapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcpUNKE7jISISKTqdYakvjv7a-1i2oe-o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
