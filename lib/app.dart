@@ -41,12 +41,9 @@ class _MyAppState extends State<MyApp> {
         'receiver_accept_reject_page': (context) => ReceiverAcceptRejectPage(),
         'app': (context) => MyHomePage(),
         'notification': (context) => NotificationPage(),
-        // 'forgotPass': (context) => ForgetPassword(),
-        // 'verifyEmail': (context) => VerifyEmail(),
-        // 'profile': (context) => Profile(),
-        // 'chat': (context) => UkuChat(),
-        // 'addTask': (context) => EventForm(),
-        // 'chat2': (context) => Chat(),
+        'requestForm': (context) => buddyRequestForm(),
+        'chat': (context) => Chat(),
+        // 'aiChat': (context) => AiChat(),
       },
       themeMode: ThemeMode.system,
       theme: TAppTheme.lightTheme,
@@ -73,10 +70,6 @@ class _MyHomePageState extends State<MyHomePage> {
     Login(),
     RequestBuddyPage(),
     ReceiverAcceptRejectPage()
-    // BmiCalc(),
-    // Calendarschedule(),
-    // HelpfulLinksPage(),
-    // Login(),
   ];
 
   @override
@@ -107,6 +100,11 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Icon(
             Iconsax.send,
+            size: 30,
+            color: Colors.white,
+          ),
+          Icon(
+            Iconsax.receipt,
             size: 30,
             color: Colors.white,
           ),
