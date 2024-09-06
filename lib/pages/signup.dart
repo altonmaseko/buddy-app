@@ -358,10 +358,10 @@ class _SignupScreenState extends State<SignupScreen> {
 
     print("Sending registration request");
 
-    String url = baseUrl + "api/auth/register";
+    String url = baseUrl + "/register";
     final uri = Uri.parse(url);
     var body = {
-      "studentno": _studentNoController.text,
+      "studentNo": _studentNoController.text,
     };
     final response = await http.post(uri, body: body);
 
@@ -386,7 +386,7 @@ class _SignupScreenState extends State<SignupScreen> {
   Future<void> registerPart2(String code) async {
     showBottomMessage([CircularProgressIndicator()]);
 
-    String url = baseUrl + "api/auth/register/${code}";
+    String url = baseUrl + "/register/${code}";
     final uri = Uri.parse(url);
     var body = {
       "firstname": _firstNameController.text,

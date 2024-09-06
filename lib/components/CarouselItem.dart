@@ -22,7 +22,7 @@ class CarouselItem extends StatelessWidget {
           BoxShadow(
             color: Colors.grey.shade800,
             offset: const Offset(-4.0, 2.0),
-            blurRadius: 6,
+            blurRadius: 3,
           ),
         ],
       ),
